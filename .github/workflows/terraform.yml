@@ -37,14 +37,14 @@ jobs:
         aws sts get-caller-identity  # Verifies AWS credentials
 
     - name: Terraform Init
-        cd terraform-aws-pipeline
+        cd /Users/paulabekah/terraform-aws-pipeline/terraform
       run: terraform init
 
     - name: Terraform Plan
-        cd terraform-aws-pipeline
+        cd /Users/paulabekah/terraform-aws-pipeline/terraform
       run: terraform plan -input=false
 
     - name: Terraform Apply
-        cd terraform-aws-pipeline
+        cd /Users/paulabekah/terraform-aws-pipeline/terraform
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
